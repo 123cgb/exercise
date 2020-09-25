@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车列表展示！</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <!--main-->
+    <div id="container" class="cart">
+        <div class="w">
+            <!--全部商品哪一行-->
+            <div class="cart-top" style="display: block;">
+                <div class="cart-top-left">
+                    <a href=""><em>全部商品</em></a>
+                </div>
+                <div class="footline">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <!--包裹购物车-->
+            <div class="cart-wrap" style="display: block;">
+                <div class="w">
+                    <div id="jd-cart">
+                        <div class="cartmain">
+                            <div class="cart-thead">
+                                <div class="cart-col t-checkbox">
+                                    <div class="cart-checkbox">
+                                        <input type="checkbox" checked="" name="" id="" class="allsel" value="" /> 全选
+                                    </div>
+                                </div>
+                                <div class="cart-col t-goods">商品</div>
+                                <div class="cart-col t-props"></div>
+                                <div class="cart-col t-prices">单价(元)</div>
+                                <div class="cart-col t-quantity">数量</div>
+                                <div class="cart-col t-sum">小计(元)</div>
+                                <div class="cart-col t-action">操作</div>
+                            </div>
+                            <div id="cart-list">
+                                <div class="cart-item-list">
+                                    <div class="cart-tbody">
+                                        <!-- 显示购物车列表 -->
+                                        <div class="item-list">
+                                            <div class="goods-item goods-item-sele" style="display: none;">
+                                                <div class="goods-info">
+                                                    <div class="cell b-checkbox">
+                                                        <div class="cart-checkbox">
+                                                            <input type="checkbox" checked="" name="" id="" value="" />
+                                                            <span class="line-circle"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell b-goods">
+                                                        <div class="goods-name">
+                                                            <div class="goods-pic">
+                                                                <a href=""><img src="" alt="" /></a>
+                                                            </div>
+                                                            <div class="goods-msg">
+                                                                <div class="goods-d-info">
+                                                                    <a href="">Apple iMac 27英寸一体机（Core i5
+                                                                        处理器/8GB内存/1TB存储/2GB独显/Retina 5K屏 MK462CH/A）</a>
+                                                                </div>
+                                                                <div class="goods-ex">
+                                                                    <span class="promise"></span>
+                                                                    <span class="promise">
+                                                                        <i></i><a href="">购买京东服务</a>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell b-props">
+                                                        <div class="prop-text"></div>
+                                                    </div>
+                                                    <div class="cell b-price">
+                                                        <strong>13488.00</strong>
+                                                        <a class="sales-promotion" href="">
+                                                            促销优惠
+                                                            <b></b>
+                                                        </a>
+                                                        <div class="sales-promotion-dropdown">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell b-quantity">
+                                                        <div class="quantity-form">
+                                                            <a class="quantity-down" href="javascript:void(0)">-</a>
+                                                            <input type="text" value="1" />
+                                                            <a class="quantity-add" href="javascript:void(0)">+</a>
+                                                        </div>
+                                                        <div class="quantity-text">有货</div>
+                                                    </div>
+                                                    <div class="cell b-sum">
+                                                        <strong>13488.00</strong>
+                                                    </div>
+                                                    <div class="cell b-action">
+                                                        <a href="javascript:void(0)">删除</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cart-floatbar">
+                        <div class="select-all">
+                            <div class="cart-checkbox">
+                                <input type="checkbox" checked="" name="" id="" class="allsel" value="" /> 全选
+                            </div>
+                        </div>
+                        <div class="operation">
+                            <a href="javascript:void(0)">删除选中的商品</a>
+                        </div>
+                        <div class="toolbar-right">
+                            <div class="btn-area">
+                                <a href=""></a>
+                            </div>
+                            <div class="price-sum">
+                                <span class="txt">总价（不含运费）：</span>
+                                <span class="totalprice">￥0.00</span>
+                                <span class="txt">已节省：</span>
+                                <span class="totalsave">-￥0.00</span>
+                            </div>
+                            <div class="amount-sum">
+                                已选择
+                                <em>0</em> 件商品
+                                <b></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../public2007.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //1.获取cookie，获取商品的sid和商品的数量
+    if (cookie.get('cookiesid') && cookie.get('cookienum')) {
+        let sidarr = cookie.get('cookiesid').split(',');
+        let numarr = cookie.get('cookienum').split(',');
+        // console.log(sidarr); //["1", "5", "9", "6"]
+        // console.log(numarr); //["10", "55", "100", "60"]
+        for (let i = 0; i < sidarr.length; i++) {
+            renderlist(sidarr[i], numarr[i]);
+        }
+    }
+
+    //2.单独封装函数实现商品列表的渲染。
+    //渲染的方式：提前隐藏一个结构，对隐藏的结构进行赋值。
+    function renderlist(sid, num) { //sid:商品的sid  num:商品数量。
+        $.ajax({
+            url: 'http://localhost/JS2007/php/jingdong.php',
+            dataType: 'json'
+        }).done(function(data) {
+            console.log(data);
+            $.each(data, function(index, value) {
+                if (value.sid === sid) { //如果传入的sid和当前接口数据中的sid相等，能够拿到当前的这条数据。
+                    //clone([Even[,deepEven]])克隆匹配的DOM元素并且选中这些克隆的副本。
+                    //第一个参数true:克隆上面的事件
+                    //第二个参数true:包括事件和子元素。
+                    let clonebox = $('.goods-item:hidden').clone(true, true); //对隐藏的元素进行克隆
+                    clonebox.find('.goods-pic img').attr('src', value.url);
+                    clonebox.find('.goods-d-info a').html(value.title);
+                    clonebox.find('.b-price strong').html(value.price);
+                    clonebox.find('.quantity-form input').val(num);
+                    clonebox.find('.b-sum strong').html((value.price * num).toFixed(2));
+                    //append(content|fn)向每个匹配的元素内部追加内容。
+                    //显示克隆的元素。
+                    clonebox.css('display', 'block');
+                    $('.item-list').append(clonebox);
+                    calc(); //计算总价
+                }
+            });
+        })
+    }
+
+    //3.计算总价
+    function calc() {
+        let allprice = 0; //商品的总价
+        let allcount = 0; //商品总的件数
+        $('.goods-item:visible').each(function(index, element) {
+            //is():根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。
+            if ($(this).find('.cart-checkbox input').is(':checked')) {
+                allprice += parseFloat($(this).find('.b-sum strong').html());
+                allcount += parseInt($(this).find('.quantity-form input').val());
+            }
+        });
+        $('.amount-sum em').html(allcount);
+        $('.totalprice').html('￥' + allprice.toFixed(2));
+    }
+</script>
+
+</html>

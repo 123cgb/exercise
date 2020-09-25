@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情页！</title>
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+    <div class="goodsinfo">
+        <div class="box">
+            <a href="cart.html" target="_blank">进入购物车</a>
+        </div>
+        <div class="wrap">
+            <div id="spic">
+                <img src="" alt="" id="smallpic">
+                <div id="sf"></div>
+            </div>
+            <div id="bf">
+                <img src="" alt="" id="bpic">
+            </div>
+            <div id="ulist">
+                <a href="javascript:;" id="left">&lt;</a>
+                <div id="list">
+                    <ul>
+
+                    </ul>
+                </div>
+                <a href="javascript:;" id="right">&gt;</a>
+            </div>
+        </div>
+        <div class="goodsinfo-word">
+            <div class="p-name">
+                <a class="loadtitle" href="##"></a>
+            </div>
+            <div class="p-price"><strong><em>￥</em><i class="loadpcp"></i></strong></div>
+            <div class="p-btn">
+                <input type="text" id="count" value="1" />
+                <a href="javascript:;">加入购物车</a>
+                <!-- void(0) -->
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="../../../public2007.js"></script>
+<!-- 使用cookie -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //1.attr(name|properties|key,value|fn)设置或返回被选元素的属性值。(包括自定义的html元素的属性)
+    //2.width(): 内容的宽度
+    //3.innerWidth()：内容的宽度+padding宽度
+    //4.outerWidth()：内容的宽度+padding宽度+border宽度
+    //5.outerWidth(true)：内容的宽度+padding宽度+border宽度+margin的宽度
+    //6.find(expr|obj|ele)搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。
+    //7.parent([expr])取得一个包含着所有匹配元素的唯一父元素的元素集合。
+    //8.parents([expr])取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。
+    // console.log($('#list ul').parents());
+    // console.log($('#list ul').parents('body'));
+</script>
+<script>
+    //详情页面：
+    //1.获取地址栏的sid，将sid通过ajax传给后端。
+    //2.后端将对应的sid匹配的数据返回给前端。。
+    //3.前端进行渲染。
+    let datasid = location.search.substring(1).split('=')[1]; //获取sid
+    const spic = $('#spic'); //小图
+    const bpic = $('#bpic'); //大图
+    const sf = $('#sf'); //小放
+    const bf = $('#bf'); //大放
+
+    if (!datasid) { //如果sid不存在，设置1
+        datasid = 1;
+    }
+    $.ajax({
+        url: 'http://localhost/JS2007/Day%2024_cookie/cart/php/getsid.php',
+        data: {
+            sid: datasid
+        },
+        dataType: 'json'
+    }).done((data) => {
+        let objdata = data;
+        $('#smallpic').attr('src', objdata.url); //图片地址
+        $('.loadtitle').html(objdata.title); //标题
+        $('.loadpcp').html(objdata.price);
+        $('#bpic').attr('src', objdata.url);
+        //渲染放大镜效果下面的小图
+        let arr = objdata.piclisturl.split(','); //转数组
+        let strhtml = '';
+        $.each(arr, function(index, value) {
+            strhtml += `
+                <li><img src="${value}"/></li>
+            `;
+        });
+
+        $('#list ul').html(strhtml);
+
+        hidearrow(); //是否显示右箭头
+    });
+    //4.放大镜效果
+    //大图/小图 = 大放/小放
+    spic.hover(function() { //显示小放和大放
+        sf.css({
+            visibility: 'visible'
+        });
+        bf.css({
+            visibility: 'visible'
+        });
+        //计算放大镜的尺寸。
+        sf.css({
+            width: spic.outerWidth() * bf.outerWidth() / bpic.outerWidth(),
+            height: spic.outerHeight() * bf.outerHeight() / bpic.outerHeight()
+        });
+        //计算比例
+        let bili = bpic.outerWidth() / spic.outerWidth();
+        //小图内容鼠标移动
+        spic.on('mousemove', function(e) {
+            let left = e.pageX - $('.wrap').offset().left - sf.width() / 2;
+            let top = e.pageY - $('.wrap').offset().top - sf.height() / 2;
+            if (left <= 0) {
+                left = 0;
+            } else if (left >= spic.width() - sf.width()) {
+                left = spic.width() - sf.width();
+            }
+
+            if (top <= 0) {
+                top = 0;
+            } else if (top >= spic.height() - sf.height()) {
+                top = spic.height() - sf.height();
+            }
+
+            sf.css({
+                left: left,
+                top: top
+            });
+            bpic.css({
+                left: -bili * left,
+                top: -bili * top
+            });
+        });
+    }, function() {
+        sf.css({
+            visibility: 'hidden'
+        });
+        bf.css({
+            visibility: 'hidden'
+        });
+    });
+
+    // console.log($('#list ul li').size());//0
+    // 采用事件委托，进行放大镜的图片切换
+    // 通过当前的li找到li内部的图片的地址，赋值给小图和大图
+    $('#list ul').on('click', 'li', function() {
+        // console.log($(this).find('img').attr('src'));//图片的地址
+        let picurl = $(this).find('img').attr('src');
+        spic.find('img').attr('src', picurl);
+        bpic.attr('src', picurl);
+    });
+
+    //小图切换的左右箭头。left/right
+    //核心思路：小图的个数有关系
+    let piclen = 6; //显示图片的张图
+    // console.log($('#list ul li').size());//无法获取li的长度,这里无法事件委托
+    // 如果是渲染的结构，无法获取元素对象，可以采用两种方式实现：
+    // 1.事件委托。
+    // 2.封装一个函数，渲染内部进行调用。
+    function hidearrow() { //当li的长度不够6个，隐藏左右箭头
+        if ($('#list ul li').size() <= piclen) {
+            $('#right').css({
+                color: '#fff'
+            })
+        }
+    }
+
+    $('#right').on('click', function() {
+        // console.log($('#list ul li').size()); //可以获取li的长度
+        let liwidth = $('#list ul li').eq(0).outerWidth(true); //1个li的长度
+        if ($('#list ul li').size() > piclen) {
+            piclen++;
+            $('#left').css({ //右箭头触发一次，左箭头可以显示。
+                color: '#333'
+            });
+            if (piclen === $('#list ul li').size()) { //无法点击右箭头，到底了
+                $('#right').css({
+                    color: '#fff'
+                });
+            }
+            $('#list ul').animate({
+                left: -(piclen - 6) * liwidth
+            });
+        }
+    });
+
+    //如果左箭头能够进行移动，piclen长度大于6.
+    $('#left').on('click', function() {
+        let liwidth = $('#list ul li').eq(0).outerWidth(true); //1个li的长度
+        if (piclen > 6) {
+            piclen--;
+            $('#right').css({ //左箭头触发一次，右箭头可以显示。
+                color: '#333'
+            });
+            if (piclen === 6) { //无法点击右箭头，到底了
+                $('#left').css({
+                    color: '#fff'
+                });
+            }
+            $('#list ul').animate({
+                left: -(piclen - 6) * liwidth
+            });
+        }
+    });
+
+
+    //5.购物车的思路
+    //5.1.商品详情页存储购物车的信息 - cookie存
+    //存储商品的sid和商品的数量 - 数组或者对象 - 数组
+    let arrsid = []; //存储商品sid的数组。
+    let arrnum = []; //存储商品数量的数组。
+    //当前的商品是第一次购买，还是多次购买，第一次购买创建商品列表，多次购买只需要增加数量。
+    //疑问：如何确认当前是第一次还是多次。
+    //解答：通过获取cookie来确认，如果是第一次cookie里面肯定不存在当前的sid，否则cookie里面一定存在当前的sid.
+    //提前约定存储cookie的sid和数量的key值。
+    function getcookie() {
+        if (cookie.get('cookiesid') && cookie.get('cookienum')) {
+            arrsid = cookie.get('cookiesid').split(','); //取出cookie将值转换成数组。
+            arrnum = cookie.get('cookienum').split(','); //取出cookie将值转换成数组。
+        }
+    }
+
+    $('.p-btn a').on('click', function() {
+        getcookie();
+        //$.inArray(value,array)确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。
+        //val():读写表单的值。
+        if ($.inArray(datasid, arrsid) === -1) { //不存在,添加sid和数量
+            //添加sid
+            arrsid.push(datasid);
+            //将整个sid的数组存入cookie
+            cookie.set('cookiesid', arrsid, 10);
+            //添加数量
+            arrnum.push($('#count').val());
+            //将整个数量的数组存入cookie
+            cookie.set('cookienum', arrnum, 10)
+        } else { //存在，添加数量
+            //根据当前的sid找到商品的数量，用当前新加的数量+cookie里面存在的数量。
+            let sidindex = $.inArray(datasid, arrsid);
+            let newarrnum = parseInt(arrnum[sidindex]) + parseInt($('#count').val()); //cookie里面存在的数量 + 当前新加的数量
+            arrnum[sidindex] = newarrnum;
+            //将整个数量的数组存入cookie
+            cookie.set('cookienum', arrnum, 10);
+        }
+        alert('按钮已经点击了');
+    });
+    //购物车列表页获取商品详情页存储的信息，渲染成对应的列表 - cookie取
+</script>
+
+</html>
