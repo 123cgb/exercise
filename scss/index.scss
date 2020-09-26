@@ -9,6 +9,9 @@ $t:text-decoration;
 a{
     text-decoration: $n;
 }
+li{
+    list-style: $n;
+}
 .wrap{
     display:flex;
     flex-direction: column;
@@ -197,6 +200,7 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 .phone-list-wrap{
     width: 90%;
@@ -205,6 +209,9 @@ a{
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: center;
+}
+.phone-list-wrap li{
+    list-style: $n;
 }
 .phone-list-wrap li a{
     display: flex;
@@ -216,7 +223,214 @@ a{
     width: 50%;
 
 }
+.phone-info{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+}
 .phone-list-wrap .big img{
     width: 460px;
     height: 460px;
+}
+
+.phone-list-wrap .phone-info h4{
+    font-size: 16px;
+    color: #333;
+}
+.phone-info .phone-infodesc{
+    font-size: 14px;
+    color: #333;
+}
+.phone-info .price{
+    font-size: 14px;
+    color: #c00;
+}
+
+.phone-list-wrap .big h4{
+    font-size: 28px;
+    color: #333;
+}
+.phone-list-wrap .big .phone-infodesc{
+    font-size: 18px;
+    color: #333;
+}
+.phone-list-wrap .big .price{
+    font-size: 22px;
+    color: #c00;
+}
+.phone-list-wrap .phone3,.phone4,.phone5,.phone6{
+    width: 25%;
+}
+
+.phone3 img{
+    width: 230px;
+}
+.phone4 img{
+    width: 230px;
+}
+.phone5 img{
+    width: 230px;
+}
+.phone6 img{
+    width: 230px;
+}
+
+//魅族声学
+.container-earphone{
+    width: $pagewidth;
+    margin-bottom: 50px;
+}
+.container-earphone-title h2{
+    text-align: center;
+}
+.container-earphone-pic{
+    overflow: hidden;
+}
+.container-earphone-pic img{
+    width: $pagewidth;
+    height: 450px;
+    transform: scaleX(1.8);
+}
+.container-earphone-list{
+    width: $pagewidth;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.earphone-list-wrap{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+.earphone-list-wrap li{
+    width: 25%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.earphone-list-wrap li a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.earphone-list-wrap li img{
+    width: 230px;
+    height: 230px;
+}
+.earphone-list-wrap .left img{
+    width: 330px;
+    height: 335px;
+}
+.earphone-list-wrap .left .earphoneinfo{
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.earphone-list-wrap .earphoneinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.earphoneinfo .earphoneinfo-name{
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 2px;
+}
+.earphoneinfo .earphoneinfo-desc{
+    font-size: 14px;
+    color: #999;
+}
+.earphoneinfo .earphoneinfo-price{
+    font-size: 22px;
+    color: #c00;
+}
+
+.earphone-list-wrap .left .earphoneinfo .earphoneinfo-name{
+    font-size: 21px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.earphone-list-wrap .left .earphoneinfo .earphoneinfo-desc{
+    font-size: 14px;
+    color: #fff;
+}
+.earphone-list-wrap .left .earphoneinfo .earphoneinfo-price{
+    font-size: 24px;
+    color: orange;
+    font-weight: bold;
+}
+
+
+//社区热帖
+.community-list-wrap{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.community-list-wrap li{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 388px;
+    margin-bottom: 9px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.community-list-wrap li a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.community-list-wrap li a>img{
+    width: 300px;
+    height: 190px;
+    margin: 0 auto;
+}
+//社区用户信息
+.community-user-info{
+    height: 42px;
+    line-height: 42px;
+}
+.community-list-wrap .community-user-info img{
+    width: 36px;
+    height: 36px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    float: left;
+    box-shadow: 1px 1px 1px 1px #eee;
+}
+.community-user-info .username{
+    font-size: 14px;
+    color: #000;
+    text-align: left;
+}
+.community-list-wrap p{
+    font-size: 16px;
+    line-height: 27px;
+    height: 66px;
+    overflow: hidden;
+    color: #333;
+}
+.community-list-wrap li a>span{
+    font-size: 10px;
+    color: #999;
 }
