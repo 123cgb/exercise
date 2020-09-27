@@ -18,10 +18,12 @@ li{
     justify-content: space-between;
 }
 .wrap #header{
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     z-index: 999;
+    position: relative;
 }
 .wrap #header .header-wrap{
     display: flex;
@@ -58,26 +60,79 @@ li{
 }
 // 用户
 .header-wrap-user{
+    width: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .header-wrap-user .user-dropdown{
+    height: 0;
     list-style: $n;
+    display: $n;
 }  
 .header-wrap-user .user-dropdown a{
     text-decoration: $n;
     color: black;
-    display: $n;
+    // display: $n;
 } 
 
 //头部底部容器，二级菜单，鼠标移入显示
 .header-wrap-sub{
-    display: $n;
+    display: none;
+    width: $pagewidth;
+    position: absolute;
+    top: 80px;
+    // height: 0px;
+    // padding-left: 120px;
+    background-color: #fff;
 }
-
+.sec-menu{
+    width: $pagewidth;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.sec-menu-wrap{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.sec-menu-wrap ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sec-menu-wrap ul img{
+    width: 120px;
+    height: 120px;
+}
+//APP下载
+.header-wrap-sub-APPdownload{
+    display: $n;
+    width: $pagewidth;
+    background-color: #fff;
+    position: absolute;
+    top: 80px;
+}
+.header-wrap-sub-APPdownload .APPdownload-content{
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.APPdownload-content img{
+    width: 1240px;
+    height: 300px;
+}
 
 //轮播图
 #banner{
@@ -434,3 +489,98 @@ li{
     font-size: 10px;
     color: #999;
 }
+
+//精彩视频 
+.container-vedio{
+    width: $pagewidth;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.vedio-list{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.vedio-list-wrap{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.vedio-list-wrap li{
+    background-color: #fff;
+    width: 25%;
+}
+.vedio-list-wrap li img{
+    width: 300px;
+    height: 190px;
+}
+.vedio-list-wrap li p{
+    font-size: 16px;
+    background-color:  #f4f4f4;
+    color: #000;
+    height: 40px;
+    text-align: center;
+}
+
+//底部
+#footer{
+    width: $pagewidth;
+    background-color: #fff;
+    font-size: 14px;
+    color: #515151;
+}
+#footer .footer-link{
+    padding: 48px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footer .footer-wrap{
+    width: 90%;
+}
+.footer-wrap .footer-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer-wrap .footer-service{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.footer-wrap .footer-service li{
+    margin: 0 10px;
+}
+.footer-service li a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer-service li a img{
+    width:50px;
+    height: 39px;
+    margin: 0 50px;
+}
+.footer-service li a span{
+    font-size: 12px;
+    color: #999;
+}
+#footer .online{
+    width: 155px;
+    height: 103px;
+}
+
+//底部版权
+.footer-co-wrap{}
