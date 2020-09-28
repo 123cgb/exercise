@@ -87,6 +87,7 @@ li{
     // height: 0px;
     // padding-left: 120px;
     background-color: #fff;
+    
 }
 .sec-menu{
     width: $pagewidth;
@@ -109,10 +110,22 @@ li{
     justify-content: space-evenly;
     align-items: center;
 }
-.sec-menu-wrap ul img{
-    width: 120px;
-    height: 120px;
+.sec-menu-wrap ul li a{
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: skyblue;
+    // span{
+    //     color: red;
+    // }
 }
+.sec-menu-wrap ul img{
+    width: 100px;
+    height: 100px;
+}
+
 //APP下载
 .header-wrap-sub-APPdownload{
     display: $n;
@@ -146,6 +159,7 @@ li{
 }
 #banner .banner-list .bannerpic{
     float: left;
+    // opacity: 0;
 }
 #banner .bannerpic img{
     width: $pagewidth;
@@ -158,9 +172,9 @@ li{
     position: absolute;
     width: 240px;
     height: 20px;
-    left: 40%;
+    left: 45%;
     // margin-left: -90px;
-    bottom: 5px;
+    bottom: 35px;
 }
 #banner .banner-btn li{
     float: left;
@@ -177,7 +191,7 @@ li{
 }
 #banner #right,#left {
     font-size: 70px;
-    color: rgb(95, 40, 247);
+    color: skyblue;
     font-family: verdana;
     position: absolute;
     text-decoration: none;
@@ -187,15 +201,16 @@ li{
 #left {
     left: 20px;
 }
-
 #right {
     right: 20px;
 }
 #left:hover {
-    color: #000;
+    cursor: pointer;
+    color: blue;
 }
 #right:hover{
-    color: #000;
+    cursor: pointer;
+    color: blue;
 }
 
 //内容
@@ -583,4 +598,20 @@ li{
 }
 
 //底部版权
-.footer-co-wrap{}
+// .footer-co-wrap{}
+
+.gotop{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right:50px; 
+    bottom:30px;
+    opacity: 0.6;
+    background-color: cadetblue;
+    p{
+        text-align: center;
+        vertical-align: middle;
+        height: 50px;
+        line-height: 50px;
+    }
+}

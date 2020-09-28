@@ -180,9 +180,27 @@ li {
           align-items: center;
 }
 
+.sec-menu-wrap ul li a {
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: skyblue;
+}
+
 .sec-menu-wrap ul img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 
 .header-wrap-sub-APPdownload {
@@ -243,8 +261,8 @@ li {
   position: absolute;
   width: 240px;
   height: 20px;
-  left: 40%;
-  bottom: 5px;
+  left: 45%;
+  bottom: 35px;
 }
 
 #banner .banner-btn li {
@@ -264,7 +282,7 @@ li {
 
 #banner #right, #left {
   font-size: 70px;
-  color: #5f28f7;
+  color: skyblue;
   font-family: verdana;
   position: absolute;
   text-decoration: none;
@@ -280,11 +298,13 @@ li {
 }
 
 #left:hover {
-  color: #000;
+  cursor: pointer;
+  color: blue;
 }
 
 #right:hover {
-  color: #000;
+  cursor: pointer;
+  color: blue;
 }
 
 .container-act {
@@ -923,5 +943,22 @@ li {
 #footer .online {
   width: 155px;
   height: 103px;
+}
+
+.gotop {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 50px;
+  bottom: 30px;
+  opacity: 0.6;
+  background-color: cadetblue;
+}
+
+.gotop p {
+  text-align: center;
+  vertical-align: middle;
+  height: 50px;
+  line-height: 50px;
 }
 /*# sourceMappingURL=index.css.map */
