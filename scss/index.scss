@@ -598,7 +598,18 @@ li{
 }
 
 //底部版权
-// .footer-co-wrap{}
+.footer-co-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .footer-co-wrap-left ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: flex-end;
+    }
+    
+}
 
 .gotop{
     position: fixed;

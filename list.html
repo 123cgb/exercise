@@ -1,17 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品列表页好</title>
+    <title>商品列表页</title>
     <link rel="stylesheet" href="css/list.css">
-    <script src="js/require.js" data-main="js/main.js" defer async="true" id="currentpage" data-page="js/list_module"></script>
+    <script src="js/require.js" data-main="js/main.js" defer async="true" id="currentpage" data-page="js/list_module.js"></script>
 </head>
-    
 <body>
+    <div class="wrap">
+        <div id="header">
+            <!-- 头部上部容器 -->
+            <div class="header-wrap">
+                <!-- logo -->
+                <div class="header-wrap-logo" >
+                    <a class="logo" href="">logo</a>
+                </div>  
+                <!-- 一级菜单 -->
+                <ul class="header-wrap-menu">
+                    <li class="menu-link menu-link-d" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">手机</a>
+                    </li>
+                    <li class="menu-link menu-link-d"" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">声学</a>
+                    </li>
+                    <li class="menu-link menu-link-d"" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">配件</a>
+                    </li>
+                    <li class="menu-link menu-link-d"" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">生活</a>
+                    </li>
+                    <li class="menu-link" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">Flyme</a>
+                    </li>
+                    <li class="menu-link" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">服务</a>
+                    </li>
+                    <li class="menu-link" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">专卖店</a>
+                    </li>
+                    <li class="menu-link" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">社区</a>
+                    </li>
+                    <li class="menu-link" target="_blank">
+                        <a href="javascript:;" target="_blank" rel="noopener noreferrer">企业服务</a>
+                    </li>
+                    <li class="menu-link" id="APPdownload" target="_blank">
+                        <a href="javascript:;" target="_blank" ">APP下载</a>
+                    </li>
+                </ul>
+                <!-- 搜索框 -->
+                <div class="header-wrap-search">
+                    <input type="text" placeholder="魅族 17">
+                    <!-- 搜索框中放大镜图标 -->
+                    <a  href="">🔍</a>
+                </div>
+                <!-- 用户 -->
+                <div class="header-wrap-user">
+                    <!-- 用户图标 -->
+                    <div class="user-logo">
+                        <a href="javascript:;">👩</a>
+                    </div>
+                </div>
+                <!-- 右边购物车 -->
+                <div class="header-wrap-cart">
+                    <a class="cart" href="" target="_blank">
+                        🛒<em>0</em>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button>默认</button>
+        <button>价格升序</button>
+        <button>价格降序</button>
+        <div class="list-wrap">
+            <ul class="q">
     
+            </ul>
+        </div>
+        <div class="pagelist">
+            <div class="m-style page">
+            </div>
+        </div>
+        <hr>
+        <div id="footer">
+            <div class="footer-link">
+                <div class="footer-wrap">
+                    <div class="footer-row">
+                        <ul class="footer-service">
+                            <li>
+                                <a href="">
+                                    <img src="https://fms.res.meizu.com/dms/2018/07/13/2c69bf7c-2d29-4fd4-852e-0aa497f36f51.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="https://fms.res.meizu.com/dms/2018/07/13/d28eac8b-b915-49dc-9dbd-80884a07d44f.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="https://fms.res.meizu.com/dms/2018/07/13/b21f3e65-f7f4-4693-914c-c070faf96770.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="https://fms.res.meizu.com/dms/2018/07/13/1998f0da-a439-4e07-9736-e6a1c39fb0ae.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="https://fms.res.meizu.com/dms/2018/07/13/420825c1-4763-436d-b3e1-721651ccc70c.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="https://fms.res.meizu.com/dms/2018/07/13/1c5cfeff-1b35-499e-bc2a-1fd29305be69.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="online">
+                            <span>周一至周日 8:00-20:00</span>
+                            <p class="tel">400-123-2222</p>
+                            <a href="">在线客服</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="footer-co">
+                        <div class="footer-co-wrap">
+                            <div class="footer-co-wrap-left">
+                                <ul>
+                                    <li>了解魅族</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                    <li>加入我们</li>
+                                </ul>
+                                <div>
+                                    <a href=""></a>
+                                </div>
+                            </div>
+                            <div class="footer-co-wrap-right">
+                                <a href="">1</a>
+                                <a href="">2</a>
+                                <a href="">3</a>
+                                <a href="">4</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
-
 </html>

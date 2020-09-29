@@ -98,21 +98,20 @@ define([], function () {
             var t = null;
             let index = 0;
             //自动播放
-            t = setInterval(auto, 2000);
-
+            t = setInterval(auto, 3000);
             function auto() {
                 index++;
                 if (index > 4) {
                     index = 0;
                 }
-                $('.bannerpic').eq(index).fadeIn(2000).siblings().fadeOut(2000);
+                $('.bannerpic').eq(index).fadeIn(3000).siblings().fadeOut(3000);
                 // $('.bannerpic').eq(index).css('opacity',1).siblings().css('opacity',0);
             };
             //点击底部按钮图片切换
             $(".banner-btn li").click(function () {
                 var index = $(this).index(); //获取索引 图片索引与按钮的索引是一一对应的
                 // console.log(index);
-                $(".bannerpic").eq(index).fadeIn(2000).siblings().fadeOut(2000); // siblings  找到 兄弟节点(不包括自己）
+                $(".bannerpic").eq(index).fadeIn(3000).siblings().fadeOut(3000); // siblings  找到 兄弟节点(不包括自己）
             });
             // 上一张、下一张切换
             $("#left").click(function () {
@@ -121,7 +120,7 @@ define([], function () {
                     index = 4
                 }
                 // console.log(index);
-                $(".bannerpic").eq(index).fadeIn(2000).siblings().fadeOut(2000); // siblings  找到 兄弟节点(不包括自己）必须要写
+                $(".bannerpic").eq(index).fadeIn(3000).siblings().fadeOut(3000); // siblings  找到 兄弟节点(不包括自己）必须要写
             }); // $(".bannerpic")获取到的是一个数组集合 。所以可以用index来控制
             $("#right").click(function () {
                 index++;
@@ -129,12 +128,12 @@ define([], function () {
                     index = 0
                 }
                 // console.log(index);
-                $(".bannerpic").eq(index).fadeIn(2000).siblings().fadeOut(2000);
+                $(".bannerpic").eq(index).fadeIn(3000).siblings().fadeOut(3000);
             });
-            // // 鼠标移入轮播图，暂停
-            // $('#banner').mouseover(function(){
-            //     clearInterval(t);
-            // })
+            // 鼠标移入轮播图，暂停
+            $('#banner').mouseover(function(){
+                clearInterval(t);
+            })
             // 鼠标移入移出轮播图，播放
             $('#banner').hover(
                 //移入
@@ -143,14 +142,14 @@ define([], function () {
                 },
                 //移出
                 function () {
-                    t = setInterval(auto, 2000);
+                    t = setInterval(auto, 3000);
 
                     function auto() {
                         index++;
                         if (index > 4) {
                             index = 0;
                         }
-                        $('.bannerpic').eq(index).fadeIn(2000).siblings().fadeOut(2000);
+                        $('.bannerpic').eq(index).fadeIn(3000).siblings().fadeOut(3000);
                     };
                 }
             );
