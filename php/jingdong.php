@@ -4,7 +4,7 @@ include "conn.php";
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Method:POST,GET');
 
-$pagesize = 10; //单个页面展示的数据条数
+$pagesize = 6; //单个页面展示的数据条数
 
 $sql = "select * from taobaogoods"; //获取所有的数据
 $result = $conn->query($sql); //获取数据的结果集(记录集)

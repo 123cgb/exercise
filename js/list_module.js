@@ -9,7 +9,7 @@ define(['pagination','jlazyload'], function () {
             //渲染
             const $sce1 = $('.q');
             $.ajax({
-                    url: "http://192.168.13.39/exercise/php/jingdong.php",
+                    url: "http://192.168.0.16/exercise/php/jingdong.php",
                     dataType: "json"
                 })
                 .done((data) => {
@@ -22,7 +22,7 @@ define(['pagination','jlazyload'], function () {
                                     <img class="lazy" data-original="${value.url}">
                                     <p>${value.title}</p>
                                     <p class="price">￥${value.price}</p>
-                                    <p>${value.sailnumber}</p>
+                                    <p>月销量${value.sailnumber}</p>
                                 </a>
                             </li>
                         `;
@@ -43,6 +43,7 @@ define(['pagination','jlazyload'], function () {
                         array_default[index] = $(this);
                     });
                 });
+
 
                 //2.分页思路
             //告知后端当前请求的是第几页数据。将当前的页面页码传递给后端(get和page)

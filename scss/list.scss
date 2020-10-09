@@ -22,7 +22,7 @@ html,body{
     justify-content: space-evenly;
     z-index: 999;
     position: relative;
-    background-color: cyan;
+    background: linear-gradient(top,#42a4e0,#2e88c0);
 }
 .wrap #header .header-wrap{
     display: flex;
@@ -59,24 +59,62 @@ html,body{
     top: 0;
 }
 
+.pic{
+    // position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 350px;
+    img{
+        height: 350px;
+        transform: scale(1.9);
+    }
+}
+.btn-wrap{
+    padding: 60px 0 15px 0;
+    background: #f4f4f4;
+    position: relative;
+    :nth-child(1){
+        position: absolute;
+        right: 200px;
+        bottom: 15px;
+    }
+    :nth-child(2){
+        position: absolute;
+        right: 135px;
+        bottom: 15px;
+    }
+    :nth-child(3){
+        position: absolute;
+        right: 70px;
+        bottom: 15px;
+    }
+    button{
+        border:1px solid #1e7db9;
+        background: linear-gradient(top,#42a4e0,#2e88c0);
+    }
+}
+
 .list-wrap{
     width: $pagewidth;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    // align-items: center;
+    background: #f4f4f4;
 }
 .list-wrap .q{
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     // background-color: violet;
     li{
-        width: 18%;
+        width: 32%;
         height: 340px;
         margin-bottom: 10px;
+        background: #fff;
         border: 1px solid #ccc;
         
     }
@@ -84,7 +122,7 @@ html,body{
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
             p:nth-child(2){
@@ -96,6 +134,7 @@ html,body{
                 align-self: flex-start;
             }
             p:nth-child(4){
+                font-size: 12px;
                 color: sandybrown;
                 align-self: flex-end;
                 justify-self: flex-end;
@@ -108,14 +147,12 @@ html,body{
 .list-wrap .q li:hover{
     box-shadow: 0 15px 30px rgba(0,0,0,.1);
 }
-//分页
-// .pagelist{
-//     position: absolute;
-//     left: 520px;
-//     span{
-//         border: gray 1px dashed;
-//     }
-// }
+
+.pagewrap{
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+}
 
 
 

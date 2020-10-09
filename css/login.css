@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: skyblue;
+}
+
+.content {
+  width: 100%;
+}
+
+.ucSimpleHeader {
+  height: auto;
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.ucSimpleHeader a {
+  float: left;
+  height: 50px;
+  width: 110px;
+  overflow: hidden;
+  display: block;
+}
+
+.ucSimpleHeader a img {
+  height: 100%;
+}
+
+.box {
+  height: 600px;
+  width: 100%;
+  background: url(../img/pic-flyme.png) no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  position: relative;
+}
+
+.box .form {
+  width: 298px;
+  position: absolute;
+  top: 16%;
+  right: 85px;
+  background-color: #FFF;
+  padding: 72px 35px 20px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 6px 12px 0 rgba(138, 153, 150, 0.15);
+          box-shadow: 0 6px 12px 0 rgba(138, 153, 150, 0.15);
+}
+
+.tab-title {
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tel {
+  width: auto;
+  font-size: 14px;
+  display: block;
+  height: 46px;
+  line-height: 46px;
+}
+
+.tel span {
+  display: inline-block;
+  width: 60px;
+  border-right: 1px solid #DDD;
+  cursor: pointer;
+}
+
+.tel span input {
+  height: 40px;
+}
+
+.tel > input {
+  height: 40px;
+  width: 210px;
+}
+
+.pwd input {
+  width: 276px;
+  height: 40px;
+  margin-top: 25px;
+}
+
+.click input {
+  width: 276px;
+  height: 40px;
+  margin-top: 25px;
+}
+
+.wrap2 {
+  display: none;
+}
+
+#footer {
+  width: 100%;
+  background-color: #fff;
+  font-size: 14px;
+  color: #515151;
+}
+
+#footer .footer-link {
+  padding: 48px 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footer .footer-wrap {
+  width: 90%;
+}
+
+.footer-wrap .footer-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-wrap .footer-service {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer-wrap .footer-service li {
+  margin: 0 10px;
+}
+
+.footer-service li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer-service li a img {
+  width: 50px;
+  height: 39px;
+  margin: 0 50px;
+}
+
+.footer-service li a span {
+  font-size: 12px;
+  color: #999;
+}
+
+#footer .online {
+  width: 155px;
+  height: 103px;
+}
+
+.footer-co-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-co-wrap .footer-co-wrap-left ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+}
+
+.footer-co-wrap .footer-co-wrap-right a {
+  color: #ccc;
+}
+
+.footer-co-wrap .footer-co-wrap-right i {
+  font-size: 25px;
+}
+/*# sourceMappingURL=login.css.map */
